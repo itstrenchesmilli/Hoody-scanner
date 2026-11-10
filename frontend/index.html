@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07080a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Hoody" />
+  <meta name="description" content="Hoody-style Bitunix USDT-perp discovery scanner. Not financial advice." />
+  <title>Hoody Setup Scanner</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="/icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="/static/vendor/lightweight-charts.standalone.production.js" defer></script>
+</head>
+<body>
+  <div class="nfa">Not financial advice. Rules-based journal scanner from a public Telegram study — not a signal service. Leverage can wipe an account. Confirm every level. DYOR.</div>
+
+  <header class="top">
+    <div class="brand">
+      <img class="mark" src="/icons/icon-192.png" width="36" height="36" alt="" />
+      <div>
+        <h1>Hoody Scanner</h1>
+        <p class="sub" id="updated">Bitunix USDT perps · crypto only</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button type="button" class="ghost" id="watch-only-btn" aria-pressed="false">★ Watchlist</button>
+      <button type="button" class="ghost" id="rescan-btn">Rescan</button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero"></section>
+  <section class="changes" id="changes" hidden></section>
+
+  <div class="filters" id="filters">
+    <input id="q" type="search" placeholder="Search coin" enterkeyhint="search" />
+    <div class="seg" id="dir-filter" role="tablist">
+      <button data-v="all" class="on">All</button>
+      <button data-v="long">Long</button>
+      <button data-v="short">Short</button>
+    </div>
+    <div class="seg" id="state-filter">
+      <button data-v="all" class="on">Any</button>
+      <button data-v="confirmed">Confirmed</button>
+      <button data-v="trigger">Trigger</button>
+      <button data-v="watch">Watch</button>
+      <button data-v="stretched">Stretched</button>
+    </div>
+    <label class="score-lab">Min score
+      <input id="min-score" type="range" min="0" max="80" value="0" />
+      <span id="min-score-val">0</span>
+    </label>
+    <p class="count" id="count"></p>
+  </div>
+
+  <div class="layout" id="layout">
+    <aside class="board" id="board-pane">
+      <div class="list" id="list"></div>
+    </aside>
+    <main class="detail" id="detail">
+      <div class="empty">Pick a setup to read the discovery rank, plan, and chart.</div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    Discovery ranks names the way the public Hoody journal selected coins. Rules 1–8 are a secondary confluence, not the board sort. Majors live in the market-context strip. Crypto-only: tokenized stocks, ETFs, commodities and FX listings are excluded.
+  </footer>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

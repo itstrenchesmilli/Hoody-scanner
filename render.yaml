@@ -1,0 +1,12 @@
+# Deploy on Render: create a Render account, then "New > Blueprint" from this
+# repo/folder, or create a Web Service with the Docker runtime.
+# Render no longer has a reliable always-on free web tier; a paid starter
+# instance is typically required for the 10-minute scan loop.
+services:
+  - type: web
+    name: hoody-setup-scanner
+    runtime: docker
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"

@@ -1,0 +1,10 @@
+# Deploy on Railway: create a Railway account, "New project" from this folder
+# or its Git repo. Railway injects $PORT. No Bitunix API key is required.
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/api/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
